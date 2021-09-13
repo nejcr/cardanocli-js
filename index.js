@@ -917,6 +917,7 @@ class CardanocliJs {
                   options.invalidBefore ? options.invalidBefore : 0
                 } \
                 --fee ${options.fee ? options.fee : 0} \
+                --protocol-params-file ${this.protocolParametersPath} \
                 --out-file ${this.dir}/tmp/tx_${UID}.raw \
                 ${this.era}`);
 
