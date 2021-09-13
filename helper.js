@@ -217,13 +217,14 @@ exports.mintToString = (dir, minting) => {
   result = result.trim();
   result += `" `;
   const usedScripts = [];
+  const execUni=`"(28314223, 28314223)"`
   result += minting
     .map((mint) => {
       const script = this.jsonToPath(dir, mint.script);
       if (usedScripts.includes(script)) return "";
       usedScripts.push(script);
       return ` --mint-script-file ${script} --mint-redeemer-value []`;
-    })[0] + " --mint-execution-units (28314223, 95200)"
+    })[0] + ` --mint-execution-units ${execUni}`
 
   return result;
 };
