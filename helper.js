@@ -228,7 +228,7 @@ exports.mintToString = (dir, minting) => {
       if (usedScripts.includes(script)) return "";
       usedScripts.push(script);
       return ` --mint-script-file ${script} ${reedemParam}`;
-    })[0] + ` --mint-execution-units ${execUni}`
+    }) + ` --mint-execution-units ${execUni}`
 
   return result;
 };
