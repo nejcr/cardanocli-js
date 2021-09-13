@@ -217,7 +217,7 @@ exports.mintToString = (dir, minting) => {
   result = result.trim();
   result += `" `;
   const usedScripts = [];
-  const execUni=`"(28314223, 28314223)"`
+  const execUni=`"(29314223, 28314223)"`
   const redeemerFile = this.jsonToPath(dir,{"constructor":0, "fields":[]})
   result += minting
     .map((mint) => {
