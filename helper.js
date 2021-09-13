@@ -223,8 +223,7 @@ exports.mintToString = (dir, minting) => {
       if (usedScripts.includes(script)) return "";
       usedScripts.push(script);
       return ` --mint-script-file ${script} --mint-redeemer-value []`;
-    })
-    .join(" ");
+    })[0] + " --mint-execution-units (28314223, 95200)"
 
   return result;
 };
