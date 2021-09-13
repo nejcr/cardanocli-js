@@ -219,12 +219,15 @@ exports.mintToString = (dir, minting) => {
   const usedScripts = [];
   const execUni=`"(${minting[0].cpu}, ${minting[0].ram})"`
   const redeemerFile = this.jsonToPath(dir,{"constructor":0, "fields":[]})
+  const hasFile = minting[0]?.file
+
+  const reedemParam = hasFile  ?`--mint-redeemer-file ${redeemerFile}`: '--mint-redeemer-value []'
   result += minting
     .map((mint) => {
       const script = this.jsonToPath(dir, mint.script);
       if (usedScripts.includes(script)) return "";
       usedScripts.push(script);
-      return ` --mint-script-file ${script} --mint-redeemer-file ${redeemerFile}`;
+      return ` --mint-script-file ${script} ${reedemParam}`;
     })[0] + ` --mint-execution-units ${execUni}`
 
   return result;
