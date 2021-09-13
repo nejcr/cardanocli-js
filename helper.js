@@ -236,7 +236,11 @@ exports.mintToString = (dir, minting) => {
               mint.executionUnits[0] + "," + mint.executionUnits[1]
             }})" `
           : ""
-      }`;
+      }
+       --mint-redeemer-value []
+      `;
+
+
     })
     .join(" ");
   return result;
